@@ -7,11 +7,11 @@ var path = __dirname + '/views/';
  
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-	host     : 'localhost',
+	host     : '172.30.24.12',
 	user     : 'wida_1113470',
 	password : '51928325',
 	database : 'WIDA',
-	port: 3306
+	//port: 3306
 });
 
 connection.connect();

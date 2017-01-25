@@ -1,33 +1,35 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'start' ]
-2 info using npm@3.5.2
-3 info using node@v4.2.6
+1 verbose cli [ '/home/wida_1113470/nodejs/bin/node',
+1 verbose cli   '/home/wida_1113470/nodejs/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@3.10.9
+3 info using node@v6.9.2
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle express_tutorial@0.0.1~prestart: express_tutorial@0.0.1
 6 silly lifecycle express_tutorial@0.0.1~prestart: no script for prestart, continuing
 7 info lifecycle express_tutorial@0.0.1~start: express_tutorial@0.0.1
 8 verbose lifecycle express_tutorial@0.0.1~start: unsafe-perm in lifecycle true
-9 verbose lifecycle express_tutorial@0.0.1~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/osboxes/Documents/Web_Dev/projekt_3/node_w_express/node_modules/.bin:/home/osboxes/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-10 verbose lifecycle express_tutorial@0.0.1~start: CWD: /home/osboxes/Documents/Web_Dev/projekt_3/node_w_express
+9 verbose lifecycle express_tutorial@0.0.1~start: PATH: /home/wida_1113470/nodejs/lib/node_modules/npm/bin/node-gyp-bin:/home/wida_1113470/public_html/saper-test/final/www_node_w_express/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/wida_1113470/nodejs/bin/:.
+10 verbose lifecycle express_tutorial@0.0.1~start: CWD: /home/wida_1113470/public_html/saper-test/final/www_node_w_express
 11 silly lifecycle express_tutorial@0.0.1~start: Args: [ '-c', 'node server.js' ]
 12 silly lifecycle express_tutorial@0.0.1~start: Returned: code: 1  signal: null
 13 info lifecycle express_tutorial@0.0.1~start: Failed to exec start script
 14 verbose stack Error: express_tutorial@0.0.1 start: `node server.js`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/usr/share/npm/lib/utils/lifecycle.js:232:16)
-14 verbose stack     at emitTwo (events.js:87:13)
-14 verbose stack     at EventEmitter.emit (events.js:172:7)
-14 verbose stack     at ChildProcess.<anonymous> (/usr/share/npm/lib/utils/spawn.js:24:14)
-14 verbose stack     at emitTwo (events.js:87:13)
-14 verbose stack     at ChildProcess.emit (events.js:172:7)
-14 verbose stack     at maybeClose (internal/child_process.js:821:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+14 verbose stack     at EventEmitter.<anonymous> (/home/wida_1113470/nodejs/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/home/wida_1113470/nodejs/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid express_tutorial@0.0.1
-16 verbose cwd /home/osboxes/Documents/Web_Dev/projekt_3/node_w_express
-17 error Linux 4.4.0-59-generic
-18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
-19 error node v4.2.6
-20 error npm  v3.5.2
+16 verbose cwd /home/wida_1113470/public_html/saper-test/final/www_node_w_express
+17 error Linux 3.2.0-4-amd64
+18 error argv "/home/wida_1113470/nodejs/bin/node" "/home/wida_1113470/nodejs/bin/npm" "start"
+19 error node v6.9.2
+20 error npm  v3.10.9
 21 error code ELIFECYCLE
 22 error express_tutorial@0.0.1 start: `node server.js`
 22 error Exit status 1
