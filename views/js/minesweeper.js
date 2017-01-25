@@ -1,0 +1,139 @@
+
+//https://github.com/Zomis/Minesweeper-JS/blob/master/minesweeper.html
+
+
+function minesweeper(x,y,mines) {
+var date = new Date();
+var f_time = date.getTime(); 
+
+
+var num_of_mines=mines;
+var x_size=x;
+var y_size=y
+var fields_left=x_size*y_size;
+
+
+var elements = [];
+var fields = [];
+var allFields = [];
+
+function wygrana()
+{
+date = new Date();
+var n_time = date.getTime(); 
+alert('wygrana - czas: '+time_to_string(n_time-f_time));
+CurrentGame.result(time_to_string(n_time-f_time));
+}
+
+
+
+
+function time_to_string(t)
+{
+    var sec_num = Math.floor(t/1000.0) // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return hours+':'+minutes+':'+seconds;
+}
+
+
+
+
+function showField(thisButton) {
+	
+  var thisX = Number(thisButton.attr('data-x'));
+  var thisY = Number(thisButton.attr('data-y'));
+  var button = fields[thisY][thisX];
+  var number = Number(button.attr('data-value'));
+  thisButton.attr('data-visible', true);
+  if (button.attr('data-mine') === 'true') {
+    button.text('X');
+    alert('przegrana');
+    allFields.forEach(function(entry) {
+      entry.attr('disabled', true);
+    });
+  }
+  else if (number === 0) {
+
+	fields_left=fields_left-1;
+		if(fields_left==num_of_mines)
+			{
+			wygrana();
+			}
+
+
+    button.text(number);
+    for (var xx = thisX - 1; xx <= thisX + 1; xx++) {
+      for (var yy = thisY - 1; yy <= thisY + 1; yy++) {
+        if (fields[yy] !== undefined && fields[yy][xx] !== undefined) {
+          var innerButton = fields[yy][xx];
+          if (innerButton.attr('data-visible') === 'false') {
+            showField(innerButton);
+          }
+        }
+      }
+    }        
+  }
+  else {
+    button.text(number);
+	fields_left=fields_left-1;
+		if(fields_left==num_of_mines)
+			{
+			wygrana();
+			}
+
+  }
+}
+
+
+var table = $('#board').find('tbody');
+for (var y = 0; y < y_size; y++) {
+  var tr = $('<tr>');
+  var row = [];
+  for (var x = 0; x < x_size; x++) {
+    var td = $('<td>');
+    var button = $('<button>').text('_').attr('data-value', 0)
+     .attr('data-x', x).attr('data-y', y).attr('data-visible', false)
+     .attr('data-mine', false)
+     .on('click', function() {
+       showField($(this));
+    });
+    td.append(button);
+    tr.append(td);
+    row.push(button);
+    elements.push(button);
+    allFields.push(button);
+  }
+  fields.push(row);
+  table.append(tr);
+}
+
+// Generate mines
+for (var mines = 0; mines < num_of_mines; mines++) {
+  var random = Math.floor(Math.random() * elements.length);
+  var field = elements[random];
+  var thisX = Number(field.attr('data-x'));
+  var thisY = Number(field.attr('data-y'));
+  field.attr('data-mine', true);
+  for (var xx = thisX - 1; xx <= thisX + 1; xx++) {
+    for (var yy = thisY - 1; yy <= thisY + 1; yy++) {
+      if (fields[yy] !== undefined && fields[yy][xx] !== undefined) {
+        var innerButton = fields[yy][xx];
+        var previous = Number(innerButton.attr('data-value'));
+        innerButton.attr('data-value', previous + 1);
+      }
+    }
+  }        
+  elements.splice(random, 1);
+}
+
+}
+
+
+
+
