@@ -1,3 +1,21 @@
 include header
-h2 i am results
+div.container
+	
+	h2 i am results
+	table.table.table-striped
+			thead
+				th numer
+				th user
+				th czas
+				th data
+				th plansza
+			tbody
+				each result,i in results
+					tr
+						td #{i} 
+						td #{result.username}
+						td #{result.time_result}
+						td #{result.date_result}
+						td #{result.preset}
+			
 include footer

@@ -58,7 +58,7 @@ function Game(size_x,size_y,mine_num,preset)
 	this.result = function()
 		{
 		var out ={};
-		out.time=10.3;
+		out.time='00:02:15';
 		out.preset=self.preset;
 		send_result(out);
 		};
