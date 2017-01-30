@@ -1,3 +1,16 @@
 include header
-h2 i am register
+div.container
+
+	div.form-group
+		label(for="usr") login
+		input(type="text").form-control#usr
+	div.form-group
+		label(for="pwd") haslo
+		input(type="password").form-control#pwd
+	div.form-group
+		label(for="pwd2") powtorz haslo
+		input(type="password").form-control#pwd2
+	button(type="button",onclick='test_register({username:$("#usr").val(),password:$("#pwd").val(),password2:$("#pwd2").val()})').btn.btn-default zarejestruj
+	p#msg
+
 include footer

@@ -25,7 +25,13 @@ div.panel.panel-default
 			div.btn-group.btn-group-lg.pull-left
 				a(type="button", href='/game').btn szybka gra
 				a(type="button", href='/results').btn wyniki
-			div.btn-group.btn-group-lg.pull-right
-				button(type="button").btn Login
-				button(type="button").btn Rejestracja
-
+			if is_logged
+				div.btn-group.btn-group-lg.pull-right
+					a(type="button", href='/login').btn.btn-default #{username}
+					a(type="button", href='/',onclick='test_login(false,{})').btn.btn-default  wylogowanie
+			else
+				div.btn-group.btn-group-lg.pull-right
+					a(type="button", href='/login').btn.btn-default Login
+					a(type="button", href='/register').btn.btn-default  Rejestracja
+		div.container
+			h1 #{username}
