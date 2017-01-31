@@ -1,16 +1,16 @@
--tutaj nastapi przejscie na jade
--idea jest taka ze angula nie jest zalecany, zamiast tego jade i express
 
 
+instrukcja uruchomienia z maszyny nie bedacej serwerem:
 
-baza danych
+konsola> screen
+konsola> ssh -L 3306:127.0.0.1:3306 wida_1113470@149.156.43.65 
+W innym terminalu nalezy uruchomic program (>npm start).
 
-> screen
-> ssh -L 3306:127.0.0.1:3306 wida_1113470@149.156.43.65 
-i w innym terminalu nalezy uruchomic nodejs, tak zeby laczyl sie z bd po porcie 3306
+instrukcja uruchomienia z maszyny bedacej serwerem:
+nalezy zmodyfikowac plik serwer.js w zaznaczonym fragmencie dotyczacym lacza z baza danych (zamienic komentarze na dwoch framgentach kodu)
+nastepnie uruchomic (>npm start)
 
-
-baza danych:
+baza danych -informacje:
 tabela "results"
 	varchar(250) username
 	time time_result
@@ -19,4 +19,4 @@ tabela "results"
 tabels "users"
 	varchar(250) username
 	varchar(250) password
-//przykladowy user to "user_1", haslo: "12345678"
+//przykladowy uzytkownik(users) to "user_1", haslo: "12345678"
