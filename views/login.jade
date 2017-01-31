@@ -1,13 +1,14 @@
 include header
 div.container
-	h1 i am login
-	button(type="button",onclick='test_login(true,{username:$("#usr").val(),password:$("#pwd").val()})').btn.btn-default login
+	h1 Logowanie
+
 	div.form-group
 		label(for="usr") login
 		input(type="text").form-control#usr
 	div.form-group
 		label(for="pwd") haslo
 		input(type="password").form-control#pwd
+	button(type="button",onclick='test_login(true,{username:$("#usr").val(),password:$("#pwd").val()})').btn.btn-default login
 	p#msg
 
 

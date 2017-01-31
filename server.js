@@ -65,7 +65,7 @@ app.post('/send_data', function(req, res)
 */
 app.post('/send_db_result', function(req, res) 
 	{
-    console.log(req.body);
+    //console.log(req.body);
 	res.end(JSON.stringify({response_text:"db_recieved"}));
 	var user = 'anon'
 	if(req.session.username)
@@ -95,9 +95,9 @@ function database_login_check(req,res,username,password)
 		{
 		//console.log('login rows from database: ', rows);
 		list_of_results=JSON.parse(JSON.stringify(rows));
-		console.log('login rows from database jsoned???: ', list_of_results);
+		//console.log('login rows from database jsoned???: ', list_of_results);
 		output=(list_of_results.length==1);
-		console.log("login check ",output);	
+		//console.log("login check ",output);	
 			if(output)
 				{
 				req.session.username=username;
@@ -126,7 +126,7 @@ function database_login_check(req,res,username,password)
 //###login cd
 app.post('/login_url', function(req, res) 
 	{
-    console.log(req.body);
+    //console.log(req.body);
 
 	if(req.body.logged_in)
 		{
@@ -136,23 +136,23 @@ app.post('/login_url', function(req, res)
 		{
 		delete req.session.username;
 		delete req.session.is_logged;
-		console.log("username deleted")
+		//console.log("username deleted")
 		res.end(JSON.stringify({value:"logged_out"}));
 		}
 	
-	console.log(req.session);
+	//console.log(req.session);
 	req.session.save()
 	});
 
 ///###register
 app.post('/register_url', function(req, res) 
 	{
-    console.log(req.body);
+    //console.log(req.body);
 	connection.query('SELECT * from users where username ="'+req.body.username+'"', function(err, rows, fields) {
 	  if (!err)
 		{
 		list_of_results=JSON.parse(JSON.stringify(rows));
-		console.log('register rows from database jsoned???: ', list_of_results);
+		//console.log('register rows from database jsoned???: ', list_of_results);
 		output=(list_of_results.length==0);
 			if(output)
 				{
@@ -185,7 +185,7 @@ router.use(function (req,res,next)
 router.get("/",function(req,res)
 	{
 	//res.sendFile(path + "index.html");
-		console.log("is_logged>>>",req.session.is_logged);
+		//console.log("is_logged>>>",req.session.is_logged);
 		res.render('index',{title:'index',is_logged:req.session.is_logged, "username":req.session.username});	
 	});
 
@@ -200,7 +200,7 @@ router.get("/login",function(req,res)
 	{
 	//res.sendFile(path + "index.html");
 	res.render('login',{title:'login', is_logged:req.session.is_logged, "username":req.session.username});
-	console.log(req.session);
+	//console.log(req.session);
 	});
 
 router.get("/register",function(req,res)
@@ -215,11 +215,11 @@ router.get("/results",function(req,res)
 	var list_of_results=[{username:'alef'},{username:'bet'},'gimmel'];
 
 
-connection.query('SELECT * from results order by time_result desc limit 25', function(err, rows, fields) {
+connection.query('SELECT * from results order by time_result limit 25', function(err, rows, fields) {
   if (!err)
-    {console.log('The solution is: ', rows);
+    {//console.log('The solution is: ', rows);
 	list_of_results=JSON.parse(JSON.stringify(rows));
-	console.log('The solution is???: ', list_of_results);
+	//console.log('The solution is???: ', list_of_results);
 	res.render('results',{title:'results',results:list_of_results,is_logged:req.session.is_logged, "username":req.session.username});
 	}
   else
